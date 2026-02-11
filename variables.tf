@@ -31,7 +31,7 @@ EOT
     service_principal_id     = optional(string)
     service_principal_key    = optional(string)
     tenant                   = optional(string)
-    use_managed_identity     = optional(bool, false)
+    use_managed_identity     = optional(bool) # Default: false
   }))
 }
 
