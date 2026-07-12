@@ -14,24 +14,28 @@ Optional:
     - parameters
     - service_principal_id
     - service_principal_key
+    - service_principal_key_key_vault_id (alternative to service_principal_key - read from Key Vault instead)
+    - service_principal_key_key_vault_secret_name (alternative to service_principal_key - read from Key Vault instead)
     - tenant
     - use_managed_identity
 EOT
 
   type = map(object({
-    data_factory_id          = string
-    kusto_database_name      = string
-    kusto_endpoint           = string
-    name                     = string
-    additional_properties    = optional(map(string))
-    annotations              = optional(list(string))
-    description              = optional(string)
-    integration_runtime_name = optional(string)
-    parameters               = optional(map(string))
-    service_principal_id     = optional(string)
-    service_principal_key    = optional(string)
-    tenant                   = optional(string)
-    use_managed_identity     = optional(bool) # Default: false
+    data_factory_id                             = string
+    kusto_database_name                         = string
+    kusto_endpoint                              = string
+    name                                        = string
+    additional_properties                       = optional(map(string))
+    annotations                                 = optional(list(string))
+    description                                 = optional(string)
+    integration_runtime_name                    = optional(string)
+    parameters                                  = optional(map(string))
+    service_principal_id                        = optional(string)
+    service_principal_key                       = optional(string)
+    service_principal_key_key_vault_id          = optional(string)
+    service_principal_key_key_vault_secret_name = optional(string)
+    tenant                                      = optional(string)
+    use_managed_identity                        = optional(bool) # Default: false
   }))
   validation {
     condition = alltrue([
